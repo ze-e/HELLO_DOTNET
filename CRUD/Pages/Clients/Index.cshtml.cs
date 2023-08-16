@@ -7,7 +7,9 @@ namespace CRUD.Pages.Clients
     public class IndexModel : PageModel
     {
         public List<ClientInfo> listClients = new List<ClientInfo>();
-        public void OnGet()
+        public String errorMessage = "";
+        public String successMessage = "";
+		public void OnGet()
         {
             try
             {
@@ -35,13 +37,14 @@ namespace CRUD.Pages.Clients
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine("Error" + e.ToString());
+                Console.WriteLine("Error" + ex.ToString());
             }
         }
-    }
-    public class ClientInfo
+
+	}
+	public class ClientInfo
     {
         public String id;
         public String name;
@@ -50,4 +53,5 @@ namespace CRUD.Pages.Clients
         public String address;
         public String created_at;
     }
+
 }
